@@ -2,6 +2,9 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
+	<welcome-file-list>
+		<welcome-file>index</welcome-file>
+	</welcome-file-list>
 	<!-- 配置DispatchcerServlet -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
@@ -10,19 +13,22 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-			    classpath:applicationContext-mvc.xml
-			    classpath:applicationContext-profile.xml
-			    classpath:applicationContext-jpa.xml
+				classpath:applicationContext-mvc.xml
+				classpath:applicationContext-profile.xml
+				classpath:applicationContext-jpa.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+	<servlet-mapping>
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.css</url-pattern>
